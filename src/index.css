@@ -28,7 +28,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-image: url(./img/galaxy-night-landscape-min.jpg);
+  /* background-image: url(./img/galaxy-night-landscape-min.jpg); */
   background-size: cover;
   background-position: center;
 }
