@@ -13,6 +13,8 @@ const authSlice = createSlice({
     isRefreshing: false,
   },
   extraReducers: (builder) => {
+    console.log(builder);
+
     builder.addCase(register.fulfilled, (state, action) => {
       state.user = action.payload.user;
       state.token = action.payload.token;

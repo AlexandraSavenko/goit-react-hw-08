@@ -23,16 +23,17 @@ function App() {
 
   return (
     <div>
-      <div className="container">
+      <NavLink to="/register">Register Form</NavLink>
+      {/* <div className="container">
         <h1 className="mainTitle">Phonebook</h1>
-        <NavLink to="/contacts">Contacts</NavLink>
+        
         <ContactForm />
 
         <SearchBox />
         {loading && <Loader />}
         {error && <p>Sorry, something went wrong</p>}
         <ContactList />
-      </div>
+      </div> */}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<RegisterPage />} />
