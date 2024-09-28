@@ -8,11 +8,11 @@ export const api = axios.create({
 });
 
 export const setAuthHeader = (token) => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  api.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 const clearAuthHeader = () => {
-  axios.defaults.headers.common.Authorization = "";
+  api.defaults.headers.common.Authorization = "";
 };
 export const register = createAsyncThunk(
   "auth/register",
