@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ContactList from "../../components/ContactList/ContactList";
 import { selectIsLoading } from "../../redux/contacts/selectors";
 import Loader from "../../components/Loader/Loader";
-import { fetchContacts } from "../../redux/contacts/contactsOps";
+import { fetchContacts } from "../../redux/contacts/operations";
 
 export default function ContactsPage() {
   const dispatch = useDispatch();

@@ -2,7 +2,7 @@ import ContactList from "./components/ContactList/ContactList";
 import "./App.css";
 import SearchBox from "./components/SearchBox/SearchBox";
 import ContactForm from "./components/ContactForm/ContactForm";
-import { fetchContacts } from "./redux/contacts/contactsOps";
+import { fetchContacts } from "./redux/contacts/operations";
 import { useDispatch, useSelector } from "react-redux";
 import AppBar from "./components/AppBar/AppBar";
 import { lazy, Suspense, useEffect } from "react";
