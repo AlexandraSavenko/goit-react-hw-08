@@ -5,6 +5,12 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 export const fetchContacts = createAsyncThunk(
   "contacts/getContact",
   async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const token = state.auth.token;
+    if (!token) {
+      throw new Error("No authentication token available");
+    }
+    setAuthHeader(token);
     try {
       const response = await api.get("/contacts");
       return response.data;
@@ -35,6 +41,12 @@ export const deleteContact = createAsyncThunk(
   "contacts/deleteContact",
   async (contactID, thunkAPI) => {
     try {
+      const state = thunkAPI.getState();
+      const token = state.auth.token;
+      if (!token) {
+        throw new Error("No authentication token available");
+      }
+      setAuthHeader(token);
       const response = await api.delete(`/contacts/${contactID}`);
       return response.data;
     } catch (error) {

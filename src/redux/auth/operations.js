@@ -50,3 +50,4 @@ export const logOut = createAsyncThunk("auth/logout", async (_, thunkApi) => {
 //Sashatestsauthops@gmail.com
 //Sashatestsauthops2@gmail.com
 //Alexxxx@mail.com
+export const refreshUser = createAsyncThunk("auth/refresh", () => {});
