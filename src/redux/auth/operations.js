@@ -6,12 +6,21 @@ axios.defaults.baseURL = "https://connections-api.goit.global";
 //   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 // };
 
+// Utility to add JWT
+const setAuthHeader = (token) => {
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
+
+// Utility to remove JWT
+const clearAuthHeader = () => {
+  axios.defaults.headers.common.Authorization = "";
+};
 export const register = createAsyncThunk(
   "auth/register",
   async (credentials, thunkApi) => {
     try {
       const { data } = await axios.post("/users/signup", credentials);
-      // setAuthHeader(data.token);
+      setAuthHeader(data.token);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -24,16 +33,17 @@ export const logIn = createAsyncThunk(
   async (credentials, thunkApi) => {
     try {
       const { data } = await axios.post("/users/login", credentials);
-      // setAuthHeader(data.token);
+      setAuthHeader(data.token);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
   }
 );
-export const logOut = createAsyncThunk(async (_, thunkApi) => {
+export const logOut = createAsyncThunk("auth/logout", async (_, thunkApi) => {
   try {
     await axios.post("/users/logout");
+    clearAuthHeader();
   } catch (error) {
     return thunkApi.rejectWithValue(error.message);
   }
