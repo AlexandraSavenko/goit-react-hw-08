@@ -13,6 +13,8 @@ export const fetchContacts = createAsyncThunk(
     setAuthHeader(token);
     try {
       const response = await api.get("/contacts");
+      console.log(response.data);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

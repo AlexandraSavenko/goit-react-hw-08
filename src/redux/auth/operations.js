@@ -50,4 +50,22 @@ export const logOut = createAsyncThunk("auth/logout", async (_, thunkApi) => {
 //Sashatestsauthops@gmail.com
 //Sashatestsauthops2@gmail.com
 //Alexxxx@mail.com
-export const refreshUser = createAsyncThunk("auth/refresh", () => {});
+export const refreshUser = createAsyncThunk(
+  "auth/refresh",
+  async (_, thunkApi) => {
+    const reduxState = thunkApi.getState();
+    setAuthHeader(reduxState.auth.token);
+    try {
+      const { data } = await api.get("/users/current");
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  },
+  {
+    condition: (_, thunkApi) => {
+      const reduxState = thunkApi.getState();
+      return reduxState.auth.token !== null;
+    },
+  }
+);
