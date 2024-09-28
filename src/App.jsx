@@ -4,10 +4,10 @@ import SearchBox from "./components/SearchBox/SearchBox";
 import ContactForm from "./components/ContactForm/ContactForm";
 import { fetchContacts } from "./redux/contacts/contactsOps";
 import { useDispatch, useSelector } from "react-redux";
-
+import AppBar from "./components/AppBar/AppBar";
 import { useEffect } from "react";
 import Loader from "./components/Loader/Loader";
-import { NavLink, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import ContactsPage from "./pages/ContactsPage/ContactsPage";
 import HomePage from "./pages/HomePage/HomePage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div>
-      <NavLink to="/register">Register Form</NavLink>
+      <AppBar />
       {/* <div className="container">
         <h1 className="mainTitle">Phonebook</h1>
         
