@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import { api, setAuthHeader } from "../auth/operations";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
@@ -13,8 +13,6 @@ export const fetchContacts = createAsyncThunk(
     setAuthHeader(token);
     try {
       const response = await api.get("/contacts");
-      console.log(response.data);
-
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

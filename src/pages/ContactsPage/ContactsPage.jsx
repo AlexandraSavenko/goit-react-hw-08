@@ -10,7 +10,7 @@ import SearchBox from "../../components/SearchBox/SearchBox";
 export default function ContactsPage() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchContacts);
+    dispatch(fetchContacts());
   }, [dispatch]);
   const loading = useSelector(selectIsLoading);
   return (
